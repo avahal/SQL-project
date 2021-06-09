@@ -1,0 +1,67 @@
+CREATE DATABASE Hospital;
+
+USE Hospital;
+CREATE TABLE Doctor
+(doctor_id INTEGER,
+surname VARCHAR(50),
+title VARCHAR(50));
+
+INSERT INTO Doctor
+(doctor_id, surname, title)
+VALUES
+(1346, 'Patel', 'consultant'),
+(2689, 'Smith', 'junior'),
+(3381, 'Perkins', 'junior'),
+(7523, 'Martinez', 'consultant'),
+(9650, 'Bowman', 'junior'),
+(1139, 'Wong', 'consultant'),
+(5449, 'Webb', 'consultant'),
+(2242, 'Paterson', 'consultant');
+;
+
+USE Hospital;
+CREATE TABLE Deprartment
+(department_id INTEGER,
+title VARCHAR (50),
+head VARCHAR(50));
+
+INSERT INTO Department
+(department_id, title, head)
+VALUES
+(001, 'Dermatology', 'Martinez'),
+(002, 'OBGYN', 'Patel'),
+(003, 'Gastroenterology', 'Wong'),
+(004, 'ENT', 'Paterson'),
+(005, 'Geriatric', 'Webb');
+
+USE Hospital;
+CREATE TABLE Patient
+(patient_id INTEGER,
+first_name VARCHAR(50),
+surname VARCHAR(50),
+borough VARCHAR(50),
+phone INTEGER,
+nhs_no INTEGER);
+
+INSERT INTO Patient
+(patient_id, first_name, surname, borough, phone, nhs_no)
+VALUES
+(3456, 'Andrew', 'Jones', 'Kensington', 07787654321, 9897612),
+(2128, 'Ari', 'Abelson', 'Hammersmith', 07923475611, 8765234),
+(1134, 'Nastasha', 'Clark', 'Hackney', 07765215689, 9876245),
+(8692, 'Sam', 'Franklin', 'Barnet', 07896787944, 6475623),
+(7551, 'Alice', 'Perry', 'Hounslow', 07865213425, 6787908);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
