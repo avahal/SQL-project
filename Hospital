@@ -20,7 +20,7 @@ VALUES
 ;
 
 USE Hospital;
-CREATE TABLE Deprartment
+CREATE TABLE Department
 (department_id INTEGER PRIMARY KEY,
 title VARCHAR (50),
 head VARCHAR(50));
@@ -40,24 +40,23 @@ CREATE TABLE Patient
 first_name VARCHAR(50),
 surname VARCHAR(50),
 borough VARCHAR(50),
-phone INTEGER,
 nhs_no INTEGER);
 
 INSERT INTO Patient
-(patient_id, first_name, surname, borough, phone, nhs_no)
+(patient_id, first_name, surname, borough, nhs_no)
 VALUES
-(3456, 'Andrew', 'Jones', 'Kensington', 07787654321, 9897612),
-(2128, 'Ari', 'Abelson', 'Barnet', 07923475611, 8765234),
-(1134, 'Nastasha', 'Clark', 'Hackney', 07765215689, 9876245),
-(8692, 'Sam', 'Franklin', 'Barnet', 07896787944, 6475623),
-(7551, 'Alice', 'Perry', 'Hounslow', 07865213425, 6787908);
+(3456, 'Andrew', 'Jones', 'Kensington', 9897612),
+(2128, 'Ari', 'Abelson', 'Barnet', 8765234),
+(1134, 'Nastasha', 'Clark', 'Hackney', 9876245),
+(8692, 'Sam', 'Franklin', 'Barnet', 6475623),
+(7551, 'Alice', 'Perry', 'Hounslow', 6787908);
 
 USE Hospital;
 CREATE TABLE Appointment
 (appointment_id INTEGER PRIMARY KEY,
 patient_id INTEGER,
 doctor_id INTEGER,
-departmend_id INTEGER);
+department_id INTEGER);
 
 INSERT INTO Appointment
 (appointment_id, patient_id, doctor_id, department_id)
@@ -78,7 +77,7 @@ patient_id INTEGER);
 INSERT INTO Prescription
 (prescription_id, prescription_name, uses, patient_id)
 VALUES
-(11224, 'Amoxicillin''Antibioitic', 3456),
+(11224, 'Amoxicillin', 'Antibioitic', 3456),
 (76543, 'Docusate', 'Laxative', 2128),
 (34891, 'Hydrocortisone', 'Steroid', 1134),
 (13429, 'Lithium', 'Mood stablizer', 7551),
@@ -116,8 +115,8 @@ AND borough='Barnet';
 
 SELECT *
 FROM Appointment
-WHERE dr_id=3381
-OR dr_id=2242;
+WHERE doctor_id=3381
+OR doctor_id=2242;
 
 SELECT
 SUM(a.appointment_id)
@@ -143,5 +142,6 @@ BEGIN
 SET NEW.first_name = TRIM(NEW.first_name);
 SET NEW.surname = TRIM(NEW.surname);
 END;
+
 
 
